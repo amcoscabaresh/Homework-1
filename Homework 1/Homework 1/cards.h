@@ -69,8 +69,8 @@ public:
 	// Accessor function to get vector of cards
 	vector<Card> get_cards() const;
 
-	// Mutator function, adds a card to the deck
-	void push_back(Card c);
+	// Mutator function, adds a card to the deck and updates sum
+	void draw(Card c);
 
 	// Lists out the current cards in your deck
 	void display() const;
@@ -89,6 +89,9 @@ public:
 
 	//Accessor, returns amount of money player has
 	int get_money() const;
+
+	//Accessor, returns Hand
+	Hand get_hand() const;
 
 private:
 	int money;

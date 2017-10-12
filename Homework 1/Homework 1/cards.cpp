@@ -204,8 +204,9 @@ vector<Card> Hand::get_cards() const {
 }
 
 // Mutator function, adds a card to the deck
-void Hand::push_back(Card c) {
+void Hand::draw(Card c) {
 	cards.push_back(c);
+	sum += c.get_rank();
 }
 
 // Lists out the current cards in your deck
@@ -215,7 +216,7 @@ void Hand::display() const {
 
 	cout << "Your cards:" << endl;
 	for (i = c.begin(); i != c.end(); ++i) {
-		cout << '\t' << '\t';
+		cout << '\t';
 		cout << i->get_spanish_rank() << " de " << i->get_spanish_suit();
 		cout << " (" << i->get_english_rank() << " of " << i->get_english_suit() << ")." << endl;
 	}
@@ -229,12 +230,18 @@ void Hand::display() const {
 Player class
 ************************************************* */
 
+// Constructor for a player, requires an int and sets this as the player's starting money
 Player::Player(int m) {
-	m = 0;
+	money = m;
 	player_cards = Hand();
 }
 
 //Accessor, returns amount of money player has
 int Player::get_money() const {
 	return money;
+}
+
+// Accessor, returns hand
+Hand Player::get_hand() const {
+	return player_cards;
 }
