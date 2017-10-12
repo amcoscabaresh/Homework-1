@@ -129,7 +129,6 @@ string Card::get_english_suit() const {
 }
 
 // Accessor: returns a string with the rank of the card in English 
-// This is just a stub! Modify it to your liking.
 string Card::get_english_rank() const {
 	string rankName;
 	switch (rank) {
@@ -188,6 +187,25 @@ bool Card::operator < (Card card2) const {
 Hand class
 ************************************************* */
 // Implemente the member functions of the Hand class here.
+
+Hand::Hand() {
+
+}
+
+// Accessor function to get sum of cards played
+int Hand::get_sum() const {
+	return 0;
+}
+
+// Creates a new card and adds it to the hand and the sum
+void Hand::draw() const {
+	return;
+}
+
+// Lists out the current cards in your deck
+void Hand::display() const {
+	return;
+}
 
 
 

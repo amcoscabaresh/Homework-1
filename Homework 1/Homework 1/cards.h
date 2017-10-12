@@ -63,10 +63,18 @@ public:
 	// A vector of Cards
 	Hand();
 
-	// You decide what functions you'll need...
+	// Accessor function to get sum of cards played
+	int get_sum() const;
+
+	// Creates a new card and adds it to the hand and the sum
+	void draw() const;
+
+	// Lists out the current cards in your deck
+	void display() const;
 
 private:
-	// You decide what fields you'll need...
+	int sum;
+	std::vector<Card> cards;
 };
 
 
