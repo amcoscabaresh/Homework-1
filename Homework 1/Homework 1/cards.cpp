@@ -188,22 +188,38 @@ Hand class
 ************************************************* */
 // Implemente the member functions of the Hand class here.
 
+// Creates a basic hand with no cards and card sum = 0
 Hand::Hand() {
-
+	sum = 0;
 }
 
 // Accessor function to get sum of cards played
 int Hand::get_sum() const {
-	return 0;
+	return sum;
 }
 
-// Creates a new card and adds it to the hand and the sum
-void Hand::draw() const {
-	return;
+// Accessor function to get vector of cards
+vector<Card> Hand::get_cards() const {
+	return cards;
+}
+
+// Mutator function, adds a card to the deck
+void Hand::push_back(Card c) {
+	cards.push_back(c);
 }
 
 // Lists out the current cards in your deck
 void Hand::display() const {
+	std::vector<Card>::const_iterator i;
+	vector<Card> c = get_cards();
+
+	cout << "Your cards:" << endl;
+	for (i = c.begin(); i != c.end(); ++i) {
+		cout << '\t' << '\t';
+		cout << i->get_spanish_rank() << " de " << i->get_spanish_suit();
+		cout << " (" << i->get_english_rank() << " of " << i->get_english_suit() << ")." << endl;
+	}
+
 	return;
 }
 

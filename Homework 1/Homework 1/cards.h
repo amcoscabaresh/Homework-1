@@ -66,15 +66,18 @@ public:
 	// Accessor function to get sum of cards played
 	int get_sum() const;
 
-	// Creates a new card and adds it to the hand and the sum
-	void draw() const;
+	// Accessor function to get vector of cards
+	vector<Card> get_cards() const;
+
+	// Mutator function, adds a card to the deck
+	void push_back(Card c);
 
 	// Lists out the current cards in your deck
 	void display() const;
 
 private:
 	int sum;
-	std::vector<Card> cards;
+	vector<Card> cards;
 };
 
 
