@@ -194,7 +194,7 @@ Hand::Hand() {
 }
 
 // Accessor function to get sum of cards played
-int Hand::get_sum() const {
+double Hand::get_sum() const {
 	return sum;
 }
 
@@ -206,7 +206,11 @@ vector<Card> Hand::get_cards() const {
 // Mutator function, adds a card to the deck
 void Hand::draw(Card c) {
 	cards.push_back(c);
-	sum += c.get_rank();
+	if (7 < c.get_rank()) {
+		sum += .5;
+	} else {
+		sum += c.get_rank();
+	}
 }
 
 // Lists out the current cards in your deck

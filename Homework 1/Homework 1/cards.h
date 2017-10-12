@@ -64,7 +64,7 @@ public:
 	Hand();
 
 	// Accessor function to get sum of cards played
-	int get_sum() const;
+	double get_sum() const;
 
 	// Accessor function to get vector of cards
 	vector<Card> get_cards() const;
@@ -76,7 +76,7 @@ public:
 	void display() const;
 
 private:
-	int sum;
+	double sum;
 	vector<Card> cards;
 };
 

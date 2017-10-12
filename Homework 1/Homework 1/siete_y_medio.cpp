@@ -35,6 +35,7 @@ int main() {
 		cout << " (" << c.get_english_rank() << " of " << c.get_english_suit() << ")." << endl << endl;
 
 		h.display();
+
 		cout << "Your total is " << h.get_sum() << ". Do you want another card (y/n)? ";
 		cin >> keep_playing;
 	}
