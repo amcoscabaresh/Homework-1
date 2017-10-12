@@ -228,4 +228,13 @@ void Hand::display() const {
 /* *************************************************
 Player class
 ************************************************* */
-// Implemente the member functions of the Player class here.
+
+Player::Player(int m) {
+	m = 0;
+	player_cards = Hand();
+}
+
+//Accessor, returns amount of money player has
+int Player::get_money() const {
+	return money;
+}

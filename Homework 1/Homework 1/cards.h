@@ -87,11 +87,12 @@ public:
 	//    Assigns initial amount of money
 	Player(int m);
 
-	// You decide what functions you'll need...
+	//Accessor, returns amount of money player has
+	int get_money() const;
 
 private:
 	int money;
-	// You decide what extra fields (if any) you'll need...
+	Hand player_cards;
 };
 
 #endif
