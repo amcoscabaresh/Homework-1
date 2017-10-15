@@ -213,6 +213,15 @@ void Hand::draw(Card c) {
 	}
 }
 
+//Deletes all cards from hand
+void Hand::clear_hand() {
+	int size = cards.size();
+	for (int i = 0; i != size; ++i) {
+		cards.pop_back();
+	}
+	sum = 0;
+}
+
 // Lists out the current cards in your deck
 void Hand::display() const {
 	std::vector<Card>::const_iterator i;

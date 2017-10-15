@@ -72,6 +72,9 @@ public:
 	// Mutator function, adds a card to the deck and updates sum
 	void draw(Card c);
 
+	//Deletes all cards from hand
+	void clear_hand();
+
 	// Lists out the current cards in your deck
 	void display() const;
 
