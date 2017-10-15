@@ -46,7 +46,7 @@ int main() {
 	cout << "Dealer's cards: " << endl;
 	double dealer_total = d.get_sum();
 
-	while (dealer_total < 7.5) {
+	while (dealer_total < 5.5) {
 		Card dealer_card = Card();
 		d.draw(dealer_card);
 
