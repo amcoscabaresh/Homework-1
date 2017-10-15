@@ -93,6 +93,9 @@ public:
 	//Accessor, returns Hand
 	Hand get_hand() const;
 
+	//Mutator, adjusts money by given ammount
+	void adjust_money(int m);
+
 private:
 	int money;
 	Hand player_cards;

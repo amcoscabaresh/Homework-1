@@ -248,3 +248,8 @@ int Player::get_money() const {
 Hand Player::get_hand() const {
 	return player_cards;
 }
+
+// Mutator, adjusts money by given ammount
+void Player::adjust_money(int m) {
+	money += m;
+}

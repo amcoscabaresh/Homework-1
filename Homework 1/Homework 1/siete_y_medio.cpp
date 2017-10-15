@@ -60,6 +60,31 @@ int main() {
 		dealer_total = d.get_sum();
 	}
 
+	double player_total = p.get_sum();
+	bool player_win = false;
+	bool tie = false;
+
+	if (dealer_total > 7.5) {
+		player_win = true;
+	} 
+	else if (player_total == dealer_total){
+		tie = true;
+	}
+	else if (player_total > dealer_total) {
+		player_win = true;
+	}
+
+	if (player_win) {
+		cout << "You win " << bet << "!!!" << endl;
+		person.adjust_money(bet);
+	} 
+	else if (tie) {
+		cout << "Nobody wins!" << endl;
+	}
+	else {
+		cout << "Too bad. You loose " << bet << " :(" << endl;
+		person.adjust_money(-bet);
+	}
 
 	string s;
 	cin >> s;
