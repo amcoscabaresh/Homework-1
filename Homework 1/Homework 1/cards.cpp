@@ -218,7 +218,6 @@ void Hand::display() const {
 	std::vector<Card>::const_iterator i;
 	vector<Card> c = get_cards();
 
-	cout << "Your cards:" << endl;
 	for (i = c.begin(); i != c.end(); ++i) {
 		cout << '\t';
 		cout << i->get_spanish_rank() << " de " << i->get_spanish_suit();
