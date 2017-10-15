@@ -7,8 +7,6 @@
 #include "cards.h"
 using namespace std;
 
-// Global constants (if any)
-
 
 // Non member functions declarations (if any)
 
