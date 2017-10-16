@@ -9,21 +9,16 @@ using namespace std;
 
 
 //Allows player to continue to draw cards until they decide to stop
-void player_turn(int bet, Player person, Hand p);
+Hand player_turn(int bet, Player person, Hand p);
 
-void dealer_turn(Player dealer, Hand d);
+Hand dealer_turn(Hand d);
+
+int place_bet(int player_money);
 
 //Allows player to continue to draw cards until they decide to stop
-void player_turn(int bet, Player person, Hand p) {
+Hand player_turn(int bet, Player person, Hand p) {
 	char keep_playing = 'y';
 
-	//Requests bet from player, requires that bet not be greater than the money the player currently has
-	cout << "You have $" << person.get_money() << ". Enter bet: ";
-	cin >> bet;
-	while (bet > person.get_money()) {
-		cout << "You cannot bet more money than you currently have." << endl << "Enter bet: ";
-		cin >> bet;
-	}
 	p.clear_hand();
 
 	//Continues to draw and display cards as long as player continues to request more cards
@@ -42,9 +37,11 @@ void player_turn(int bet, Player person, Hand p) {
 		cout << "Your total is " << p.get_sum() << ". Do you want another card (y/n)? ";
 		cin >> keep_playing;
 	}
+
+	return p;
 }
 
-void dealer_turn(Player dealer, Hand d) {
+Hand dealer_turn(Hand d) {
 	d.clear_hand();
 	cout << "Dealer's cards: " << endl;
 	double dealer_total = d.get_sum();
@@ -62,10 +59,25 @@ void dealer_turn(Player dealer, Hand d) {
 		cout << "The dealer's total is " << d.get_sum() << "." << endl << endl;
 		dealer_total = d.get_sum();
 	}
+
+	return d;
+}
+
+int place_bet(int player_money) {
+	//Requests bet from player, requires that bet not be greater than the money the player currently has
+	int bet;
+
+	cout << "You have $" << player_money << ". Enter bet: ";
+	cin >> bet;
+	while (bet > player_money) {
+		cout << "You cannot bet more money than you currently have." << endl << "Enter bet: ";
+		cin >> bet;
+	}
+	return bet;
 }
 
 int main() {
-	int bet;
+	int bet = 0;
 	Player person = Player(100);
 	Player dealer = Player(900);
 	Hand p = person.get_hand();
@@ -73,14 +85,17 @@ int main() {
 
 	while (person.get_money() != 0 && dealer.get_money() > 0) {
 
-		player_turn(bet, person, p);
+		bet = place_bet(person.get_money());
 
-		dealer_turn(dealer, d);
+		p = player_turn(bet, person, p);
+
+		d = dealer_turn(d);
 
 		double player_total = p.get_sum();
+		double dealer_total = d.get_sum();
 		bool player_win = false;
 		bool tie = false;
-
+		
 		if (dealer_total > 7.5) {
 			player_win = true;
 		}
